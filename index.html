@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LG Studios is an independent digital studio creating interactive experiences, games, and original projects." />
+  <meta property="og:title" content="LG Studios" />
+  <meta property="og:description" content="Independent digital studio creating games and interactive experiences." />
+  <meta property="og:url" content="https://lgstudiosgaming.com" />
+  <title>LG Studios</title>
+  <link rel="canonical" href="https://lgstudiosgaming.com" />
+
+  <style>
+    :root {
+      --bg: #07090d;
+      --panel: rgba(255,255,255,0.055);
+      --panel-border: rgba(255,255,255,0.10);
+      --text: #f7f9fc;
+      --muted: #a8b0bd;
+      --blue: #4d9fff;
+      --blue-2: #7ec3ff;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 80% 8%, rgba(62, 141, 255, 0.18), transparent 28rem),
+        radial-gradient(circle at 10% 30%, rgba(72, 112, 255, 0.10), transparent 24rem),
+        var(--bg);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 9, 13, 0.70);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, rgba(77,159,255,.28), rgba(255,255,255,.04));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+      font-size: 13px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--blue-2);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(54px, 8vw, 108px);
+      line-height: .92;
+      margin: 0;
+      letter-spacing: -0.055em;
+      font-weight: 850;
+    }
+
+    .hero p {
+      margin: 28px 0 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 750;
+      transition: .2s ease;
+    }
+
+    .button-primary {
+      color: #06101d;
+      background: linear-gradient(135deg, #8ed0ff, #4d9fff);
+      box-shadow: 0 12px 30px rgba(77,159,255,.24);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: #edf3fb;
+    }
+
+    .button-secondary:hover {
+      background: rgba(255,255,255,.07);
+    }
+
+    .visual {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 36px;
+      border: 1px solid rgba(255,255,255,.11);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02)),
+        radial-gradient(circle at 70% 28%, rgba(70,166,255,.33), transparent 24%),
+        radial-gradient(circle at 32% 74%, rgba(27,75,155,.28), transparent 29%);
+      overflow: hidden;
+      box-shadow: 0 30px 100px rgba(0,0,0,.42);
+    }
+
+    .visual::before,
+    .visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.13);
+    }
+
+    .visual::before {
+      width: 72%;
+      height: 72%;
+      left: 14%;
+      top: 14%;
+    }
+
+    .visual::after {
+      width: 46%;
+      height: 46%;
+      left: 27%;
+      top: 27%;
+      border-color: rgba(126,195,255,.34);
+      box-shadow: 0 0 60px rgba(77,159,255,.16);
+    }
+
+    .visual-center {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .visual-logo {
+      font-size: clamp(48px, 8vw, 92px);
+      letter-spacing: -.06em;
+      font-weight: 900;
+    }
+
+    .visual-logo span {
+      color: var(--blue-2);
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 58px);
+      letter-spacing: -.04em;
+      line-height: 1;
+      margin: 0 0 18px;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .cards {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border-radius: 22px;
+      border: 1px solid var(--panel-border);
+      background: var(--panel);
+      padding: 28px;
+      min-height: 220px;
+      backdrop-filter: blur(10px);
+    }
+
+    .card-number {
+      font-size: 13px;
+      color: var(--blue-2);
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .card h3 {
+      margin: 18px 0 10px;
+      font-size: 23px;
+      letter-spacing: -.025em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .project {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .project-art,
+    .project-info {
+      border: 1px solid var(--panel-border);
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--panel);
+    }
+
+    .project-art {
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(77,159,255,.34), transparent 23%),
+        linear-gradient(145deg, #0b1220, #080a0e);
+      position: relative;
+    }
+
+    .flex-word {
+      font-size: clamp(70px, 10vw, 132px);
+      font-weight: 900;
+      letter-spacing: -.075em;
+      transform: rotate(-4deg);
+      text-shadow: 0 0 60px rgba(77,159,255,.24);
+    }
+
+    .project-info {
+      padding: clamp(34px, 5vw, 58px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-info h3 {
+      margin: 0;
+      font-size: clamp(40px, 6vw, 72px);
+      letter-spacing: -.05em;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 600px;
+    }
+
+    .status {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(126,195,255,.25);
+      color: #bfe3ff;
+      background: rgba(77,159,255,.08);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .contact-box {
+      border: 1px solid var(--panel-border);
+      border-radius: 28px;
+      padding: clamp(34px, 5vw, 58px);
+      background:
+        radial-gradient(circle at 86% 15%, rgba(77,159,255,.18), transparent 22rem),
+        rgba(255,255,255,.04);
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin-top: 26px;
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 800;
+      color: var(--blue-2);
+    }
+
+    footer {
+      padding: 32px 0 48px;
+      color: #707988;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 28px;
+    }
+
+    @media (max-width: 820px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 72px;
+      }
+
+      .hero-grid,
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        max-width: 560px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="LG Studios home">
+        <div class="brand-mark">LG</div>
+        <span>LG STUDIOS</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#studio">Studio</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Independent Digital Studio</div>
+          <h1>Ideas.<br>Built to play.</h1>
+          <p>
+            LG Studios creates original games and interactive digital experiences
+            with a focus on strong ideas, thoughtful design, and memorable worlds.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="visual" aria-label="LG Studios graphic">
+          <div class="visual-center">
+            <div class="visual-logo">LG<span>.</span></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="studio">
+      <div class="wrap">
+        <div class="eyebrow">About LG Studios</div>
+        <h2 class="section-title">Small studio.<br>Big ideas.</h2>
+        <p class="section-copy">
+          LG Studios is an independent creative studio developing games,
+          interactive experiences, and original digital projects. We believe
+          great experiences come from simple ideas, strong identity, and
+          attention to the details that make something fun to return to.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-number">01 / Games</div>
+            <h3>Original worlds</h3>
+            <p>
+              Games built around collection, progression, discovery, and the
+              moments that make players want to keep going.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">02 / Design</div>
+            <h3>Clear identity</h3>
+            <p>
+              Visual systems, interfaces, events, and assets designed to feel
+              consistent, recognizable, and easy to understand.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">03 / Development</div>
+            <h3>Made to evolve</h3>
+            <p>
+              Projects designed for iteration, new content, and continued
+              improvement after the first release.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="eyebrow">Featured Project</div>
+        <h2 class="section-title">Currently building.</h2>
+
+        <div class="project">
+          <div class="project-art" aria-label="Flex project artwork placeholder">
+            <div class="flex-word">Flex</div>
+          </div>
+
+          <div class="project-info">
+            <div class="eyebrow">LG Studios Original</div>
+            <h3>Flex</h3>
+            <p>
+              Flex is a collectible progression game built around acquiring,
+              upgrading, discovering, and showing off increasingly rare items.
+              The experience continues to grow through new content, limited
+              events, customization, and evolving gameplay systems.
+            </p>
+            <p>
+              Flex is currently being developed for iOS.
+            </p>
+            <span class="status">In Development</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div class="eyebrow">Contact</div>
+          <h2 class="section-title">Get in touch.</h2>
+          <p class="section-copy">
+            For business, development, and general inquiries, contact LG Studios
+            by email.
+          </p>
+
+          <!-- Replace this address with your final domain email -->
+          <a class="contact-email" href="mailto:info@lgstudiosgaming.com">info@lgstudiosgaming.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> LG Studios. All rights reserved.</span>
+      <span>Games • Interactive • Digital</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
